@@ -1,0 +1,24 @@
+.cardd{
+    width:18%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafaed
+    ;
+    gap:3px;
+    margin:10px;
+    padding:10px;
+    border-radius: 5px;
+    box-shadow: 5px 10px 15px #888888;
+}
+.upper{
+    display: flex;
+    flex-direction: row;
+}
+.rev{
+    text-align: left;
+}
+.divider{
+    border-top: 1px solid #1c1c1cde;
+    margin: 1px;
+}
