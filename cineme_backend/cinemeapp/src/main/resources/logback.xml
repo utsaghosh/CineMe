@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss.SSS} [%t] %-15level %logger{36} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+    
+    <appender name="FILE1" class="ch.qos.logback.core.FileAppender">
+        <file>logs/Error.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    
+    <appender name="FILE2" class="ch.qos.logback.core.FileAppender">
+        <file>logs/Warn.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+    
+
+    <appender name="FILE3" class="ch.qos.logback.core.FileAppender">
+        <file>logs/App.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE1" />
+        <appender-ref ref="FILE2" />
+        <appender-ref ref="FILE3" />
+    </root>
+
+</configuration>
